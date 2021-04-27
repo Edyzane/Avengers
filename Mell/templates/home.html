@@ -1,8 +1,9 @@
 <h1>FLASK APP RUNNING</h1>
-<h2>Please enter your house measurements below:</h2>
+<h2>Please enter your house specification/measurements below:</h2>
 <form  method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
+
     {{ form.Lot_Area.label }} {{form.Lot_Area}}
     <br>
     {{ form.Year_Built.label}} {{form.Year_Built}}
@@ -11,21 +12,21 @@
     <br>
     {{form.Mas_Vnr_Area.label}}{{form.Mas_Vnr_Area}}
     <br>
-     {{form.BsmtFin_SF_1.label}}{{form.BsmtFin_SF_1}}
+    {{ form.BsmtFin_SF_1.label }} {{form.BsmtFin_SF_1}}
     <br>
-     {{form.Total_Bsmt_SF.label}}{{form.Total_Bsmt_SF}}
+    {{ form.Total_Bsmt_SF.label}} {{form.Total_Bsmt_SF}}
     <br>
-     {{form.dnd_Flr_SF.label}}{{form.dnd_Flr_SF}}
+    {{form.Second_flr_SF.label}}{{form.Second_flr_SF}}
     <br>
-     {{form.Gr_Liv_Area.label}}{{form.Gr_Liv_Area}}
+    {{form.Gr_Liv_Area.label}}{{form.Gr_Liv_Area}}
     <br>
-     {{form.Garage_Area.label}}{{form.Garage_Area}}
+    {{ form.Garage_Area.label }} {{form.Garage_Area}}
     <br>
-     {{form.Wood_Deck_SF.label}}{{form.Wood_Deck_SF}}
+    {{ form.Wood_Deck_SF.label}} {{form.Wood_Deck_SF}}
     <br>
-     {{form.Open_Porch_SF.label}}{{form.Open_Porch_SF}}
+    {{form.Open_Porch_SF.label}}{{form.Open_Porch_SF}}
     <br>
-     {{form.Misc_Val.label}}{{form.Misc_Val}}
+    {{form.Misc_Val.label}}{{form.Misc_Val}}
     <br>
     {{ form.submit() }}
 </form>
