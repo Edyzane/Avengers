@@ -13,6 +13,13 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  
+  <style type="text/css">
+  body {
+  background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+  }
+  </style>
+
   <!-- Favicons -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
@@ -89,50 +96,50 @@
 <ul align="center">
 	<div>
 		<div>
-		Lot Area: {{session['Lot_Area']}}
+		Lot Area (SF): {{session['Lot_Area']}}
 		</div>
 		<div>
 		Year Built:  {{session['Year_Built']}}	
 		</div>
 		<div>
-		Year RemodAdd: {{session['Year_RemodAdd']}}
+		Year Remodel/Add: {{session['Year_RemodAdd']}}
 		</div>
 		<div>
-		Mas Vnr Area:  {{session['Mas_Vnr_Area']}}
+		Masonry veneer Area (SF):  {{session['Mas_Vnr_Area']}}
 		</div>
 		<div>
-		BsmtFin SF 1: {{session['BsmtFin_SF_1']}}	
+		Basement type 1 Area (SF): {{session['BsmtFin_SF_1']}}	
 		</div>
 		<div>
-		Total Bsmt SF:  {{session['Total_Bsmt_SF']}}	
+		Basement total Area (SF):  {{session['Total_Bsmt_SF']}}	
 		</div>
 		<div>	
-		Second Flr SF: {{session['Second_flr_SF']}}
+		Second Floor Area (SF): {{session['Second_flr_SF']}}
 		</div>
 		<div>
-		Gr Liv Area:  {{session['Gr_Liv_Area']}}
+		Above Ground Living Area (SF):  {{session['Gr_Liv_Area']}}
 		</div>
 		<div>
 		Garage year Built:  {{session['garage_yr_blt']}}
 		</div>
 		<div>
-		Garage Area: {{session['Garage_Area']}}	
+		Garage Area (SF): {{session['Garage_Area']}}	
 		</div>
 		<div>
-		Wood Deck SF:  {{session['Wood_Deck_SF']}}	
+		Wood Deck (SF):  {{session['Wood_Deck_SF']}}	
 		</div>
 		<div>
-		Open Porch SF: {{session['Open_Porch_SF']}}	
+		Open Porch (SF): {{session['Open_Porch_SF']}}	
 		</div>
 		<div>	
-		Screen Porch:  {{session['screen_porch']}}	
+		Screen Porch (SF):  {{session['screen_porch']}}	
 		</div>
 	</div>
 
 </ul>
 <h2 align="center">Your Predicted house price is: {{results}}</h2>
-<p align="center">The error percentage(MAPE) is <b> 0.938 </b> </p>
-<p align="center">The accuracy(R2 score) of the model is <b> 88% </b></p>
+<p align="center">The error percentage is :<b> 0.938 </b> </p>
+<p align="center">The accuracy of the model is :<b> 88% </b></p>
 
    </section><!-- End Contact Section -->
 

@@ -10,6 +10,14 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+
+<style type="text/css">
+body {
+background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+}
+</style>
+
+
   <!-- Favicons -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
@@ -61,8 +69,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Result</a></li>
+          <li><a class="nav-link scrollto active" href="#Home">Home</a></li>
+          <li><a class="nav-link scrollto" href="#Result">Result</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -83,7 +91,7 @@
 
  <div class="form-wrapper">
         <form  method="POST", align="center">
-          <div>
+          <div >
                 {# This hidden_tag is a CSRF security feature. #}
                 {{ form.hidden_tag() }}
                 
@@ -175,7 +183,6 @@
         </div>
 
       </form> 
-
         </div>
 
       </div>
