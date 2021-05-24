@@ -55,8 +55,8 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 
 # REMEMBER TO LOAD THE MODEL AND THE SCALER!
-house_model = load("heart_model.h5")
-house_scaler = load("heart_scaler.pkl")
+heart_model = load("heart_model.h5")
+heart_scaler = load("heart_scaler.pkl")
 
 
 
@@ -132,7 +132,7 @@ def prediction():
 	content['ca'] = float(session['ca'])
 	content['thal'] = float(session['thal'])
 
-	results = return_prediction(model=house_model,scaler=house_scaler,sample_json=content)
+	results = return_prediction(model=heart_model,scaler=heart_scaler,sample_json=content)
 
     #results = np.expm1(results)
     #results = "{:.2f}".format(results)
@@ -164,7 +164,8 @@ def prediction():
 		restecg1 = 'Abnormal'
 	else:
 		restecg1 = 'Probably'	
- 	if content['exang']==0:
+
+	if content['exang']==0:
 		exang1 = 'No'
 	else:
 		exang1 = 'Yes'

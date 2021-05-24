@@ -16,8 +16,9 @@
   
   <style type="text/css">
   body {
-  background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+  background-image: linear-gradient(#FFFFFF, rgb(153, 102, 255));
   }
+
   </style>
 
   <!-- Favicons -->
@@ -68,14 +69,14 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="#">Avengers</a></h1>
+      <h1 class="logo me-auto"><a href="{{ url_for('index') }}">Avengers</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Result</a></li>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('prediction') }}">Result</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -88,51 +89,77 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>HEART DISEASE PREDICTION</h2>
-          <p>Thank You. Here is the Information You Gave: </p>
+          <H2 style="font-size:40px">HEART DISEASE PREDICTION </H2> 
+          <p style="font-size:30px">Thank You. Here is the Information You Gave: </p>
         </div>
 
 
-<ul align="center">
+<ul align="center" style="border:lightblue; border-width:5px; border-style:solid;" >
   <div>
-    <div>
-    sex: {{session['age']}}
+    <div >
+
+      <p style="font-size:17px">Age: {{session['age']}}</p>
+
     </div>
     <div>
-    sex: {{gen}}
+    
+    <p style="font-size:17px">sex: {{gen}}</p>
+
     </div>
     <div>
-    cp:  {{cp1}}  
+
+    <p style="font-size:17px">cp:  {{cp1}} </p>  
+    
     </div>
     <div>
-    trestbps: {{session['trestbps']}}
+
+    <p style="font-size:17px">trestbps: {{session['trestbps']}} </p>    
+    
     </div>
     <div>
-    chol:  {{session['chol']}}
+
+    <p style="font-size:17px">chol:  {{session['chol']}}  </p>      
+    
     </div>
     <div>
-    fbs: {{fbs1}} 
+
+    <p style="font-size:17px">fbs: {{fbs1}}  </p>     
+    
     </div>
     <div>
-    restecg:  {{restecg1}}  
+
+    <p style="font-size:17px">restecg:  {{restecg1}}   </p>  
+    
     </div>
     <div> 
-    thalach: {{session['thalach']}}
+
+    <p style="font-size:17px">thalach: {{session['thalach']}}</p>   
+    
     </div>
     <div>
-    exang:  {{exang1}}
+
+    <p style="font-size:17px">exang:  {{exang1}}</p>
+    
     </div>
     <div>
-    oldpeak:  {{session['oldpeak']}}
+
+    <p style="font-size:17px">oldpeak:  {{session['oldpeak']}}</p>
+    
     </div>
     <div>
-    slope: {{slope1}} 
+
+    <p style="font-size:17px">slope: {{slope1}} </p>
+    
     </div>
     <div>
-    ca: {{session['ca']}} 
+
+    <p style="font-size:17px">ca: {{session['ca']}} </p>
+  
     </div>
     <div> 
-    thal:  {{session['thal']}}  
+
+    <p style="font-size:17px">thal:  {{session['thal']}}</p>
+
     </div>
   </div>
 

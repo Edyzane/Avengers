@@ -11,16 +11,36 @@
   <meta content="" name="keywords">
 
 
-<style type="text/css">
-body {
-background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+<style>
+
+  body {
+  background-image: linear-gradient(#FFFFFF, rgb(153, 102, 255));
+  }
+
+input1 {
+  width: 20%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 2px;
 }
+
+input::placeholder{   
+  text-align: left;      /* for Chrome, Firefox, Opera */
+  font-size:11pt;
+}
+
+
+
+
 </style>
 
 
   <!-- Favicons -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
+ 
+
 
 
   <!-- Google Fonts -->
@@ -41,7 +61,7 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
 
 </head>
 
-<body>
+<body > 
 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
@@ -63,14 +83,14 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="https://www.google.com.my/">Avengers</a></h1>
+      <h1 class="logo me-auto"><a href="{{ url_for('index') }}">Avengers</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#Home">Home</a></li>
-          <li><a class="nav-link scrollto" href="#Result">Result</a></li>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('prediction') }}">Result</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -89,29 +109,27 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
 
 
 
- <div class="form-wrapper">
+ <div>
         <form  method="POST", align="center">
-          <div >
+          <div style="border:lightblue; border-width:5px; border-style:solid;" >
                 {# This hidden_tag is a CSRF security feature. #}
                 {{ form.hidden_tag() }}
 
                     <p>
-                    <div class="form-group">
-                      <p>                      
+                    <div>                  
                       <label for="age">How old are you? (age)</label>  
-                      </p>
-                      <input type="number" name="age" class="form-control" required="required" placeholder="Range : 25-110">
+                      <input class= "input1" type="number" name="age" required="required" placeholder="Range : 25-110" align="center">
                     </div>
                     <br>   
                     </p>
                 
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="sex" required="required">
-                      <option value="" selected>Select Gender</option>
-                      <option value="1">Male</option>
-                      <option value="0">Female</option>
+                    <div>
+                      <label for id="gender"> Select your Gender</label>
+                      <select id="gender" name="sex" required="required" style="width: 150px";>
+                      <option value="1"> Male </option>
+                      <option value="0"> Female </option>
                     </select>
                     </div>
                     <br>
@@ -119,10 +137,9 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="cp" required="required">
-                        <option value="" selected>Select type of Chest Pain</option>
-                        <option value="0">Typical Angina</option>
+                    <div>
+                      <label for id="cp"> Select type of Chest Pain</label>
+                      <select class="input1" name="cp" required="required" style="width: 150px";> 
                         <option value="1">Atyopical Angina</option>
                         <option value="2">Non Anginal Pain</option>
                         <option value="3">Asymptomatic</option>
@@ -132,30 +149,27 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <p>                      
+                    <div>
+                                        
                       <label for="trestbps">Enter resting blood preassure (mm Hg)(trestbps)</label>  
-                      </p>
-                      <input type="number" name="trestbps" class="form-control" required="required" placeholder="Range : 60-200">
+                      <input type="number" name="trestbps" class="input1" required="required" placeholder="Range : 60-200" align="center">
                     </div>
                     <br>   
                     </p>
 
 
                     <p>
-                    <div class="form-group">
-                      <p>                      
+                    <div>                  
                       <label for="chol">Enter Serum Cholestoral (mg/ dl)(chol)</label>  
-                      </p>
-                      <input type="number" name="chol" class="form-control" required="required" placeholder="Range : 120-600">
+                      <input type="number" name="chol" class="input1" required="required" placeholder="Range : 120-600" align="center">
                     </div>
                     <br>   
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="fbs" required="required">
-                        <option value="" selected>Is your fasting blood sugar level more than 120 (mg/dl)</option>
+                    <div>
+                       <label for id="fbs">Is your fasting blood sugar level more than 120 (mg/dl)</label>
+                      <select class="input1" name="fbs" required="required">
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                       </select>
@@ -164,9 +178,9 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="restecg" required="required">
-                        <option value="" selected>Resting Electrocardiographic Results (restecg)</option>
+                    <div>
+                      <label for id="restecg">Resting Electrocardiographic Results (restecg)</label>
+                      <select class="input1" name="restecg" required="required">
                         <option value="0">Normal</option>
                         <option value="1">Abnormal</option>
                         <option value="2">probable</option>
@@ -176,19 +190,17 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p> 
-                    <div class="form-group">
-                      <p>                      
-                      <label for="thalach">Enter Maximum heart rate achieved (thalach)</label>  
-                      </p>
-                      <input type="number" name="thalach" class="form-control" required="required" placeholder="Range : 60-200">
+                    <div>                
+                      <label for="thalach">Enter Maximum heart rate achieved (thalach)</label>
+                      <input type="number" name="thalach" class="input1" required="required" placeholder="Range : 60-200" align="center">
                     </div>
                     <br>   
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="exang" required="required">
-                        <option value="" selected>Select Exercise Induced Angina(exang)</optiofn>
+                    <div>
+                      <label for id="exang">Select Exercise Induced Angina(exang)</label>
+                      <select class="input1" name="exang" required="required">
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                       </select>
@@ -197,19 +209,17 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <p>                      
+                    <div>                    
                       <label for="oldpeak">Enter old peak value (oldpeak)</label>
-                      </p>
-                      <input type="number" name="oldpeak" class="form-control" required="required" placeholder="Range : 0-6">
+                      <input type="number" name="oldpeak" class="input1" required="required" placeholder="Range : 0-6" align="center">
                     </div>
                     <br>   
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="slope" required="required">
-                        <option value="" selected>Select Peak exercise ST segment slope</option>
+                    <div>
+                      <label for id="slope">Select Peak exercise ST segment slope</label>
+                      <select class="input1" name="slope" required="required">
                         <option value="0">Upsloping</option>
                         <option value="1">Flat</option> 
                         <option value="2">Downsloping</option>
@@ -219,9 +229,9 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="ca" required="required">
-                        <option value="" selected>Number of major vessels (ca)</option>
+                    <div>
+                      <label for id="ca">Number of major vessels (ca)</label>
+                      <select class="input1" name="ca" required="required">
                         <option value="0">zero</option>
                         <option value="1">One</option> 
                         <option value="2">Two</option>
@@ -233,9 +243,9 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
                     </p>
 
                     <p>
-                    <div class="form-group">
-                      <select class="form-control" name="thal" required="required">
-                        <option value="" selected>Select Thal type (thal)</option>
+                    <div>
+                      <label for id="thal">Select Thal type (thal)</label>
+                      <select class="input1" name="thal" required="required">
                         <option value="0">Normal</option>
                         <option value="1">Fixed</option> 
                         <option value="2">Defect</option>
