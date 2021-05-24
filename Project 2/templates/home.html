@@ -11,16 +11,36 @@
   <meta content="" name="keywords">
 
 
-<style type="text/css">
-body {
-background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+<style>
+
+  body {
+  background-image: linear-gradient(#FFFFFF, rgb(153, 102, 255));
+  }
+
+input1 {
+  width: 20%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 2px;
 }
+
+input::placeholder{   
+  text-align: left;      /* for Chrome, Firefox, Opera */
+  font-size:11pt;
+}
+
+
+
+
 </style>
 
 
   <!-- Favicons -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
+ 
+
 
 
   <!-- Google Fonts -->
@@ -41,7 +61,7 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
 
 </head>
 
-<body>
+<body > 
 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
@@ -83,100 +103,157 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
       <div class="container">
 
         <div class="section-title">
-          <h2>AMES HOUSE PRICE PREDICTION</h2>
-          <p>Please enter your house specification/measurements below : </p>
+          <h2>HEART DISEASE PREDICTION</h2>
+          <p>Please enter your current health measurements below : </p>
         </div>
 
 
 
- <div class="form-wrapper">
+ <div>
         <form  method="POST", align="center">
-          <div style="border:lightred; border-width:5px; border-style:solid;">
+          <div style="border:lightblue; border-width:5px; border-style:solid;" >
                 {# This hidden_tag is a CSRF security feature. #}
                 {{ form.hidden_tag() }}
+
+                    <p>
+                    <div>                  
+                      <label for="age">How old are you? (age)</label>  
+                      <input class= "input1" type="number" name="age" required="required" placeholder="Range : 25-110" align="center">
+                    </div>
+                    <br>   
+                    </p>
                 
 
                     <p>
-                    {{form.Lot_Area.label }} 
-                    {{form.Lot_Area}}
+                    <div>
+                      <label for id="gender"> Select your Gender</label>
+                      <select id="gender" name="sex" required="required" style="width: 150px";>
+                      <option value="1"> Male </option>
+                      <option value="0"> Female </option>
+                    </select>
+                    </div>
                     <br>
                     </p>
                     
 
                     <p>
-                    {{ form.Year_Built.label}}
-                    {{form.Year_Built}}  
+                    <div>
+                      <label for id="cp"> Select type of Chest Pain</label>
+                      <select class="input1" name="cp" required="required" style="width: 150px";> 
+                        <option value="1">Atyopical Angina</option>
+                        <option value="2">Non Anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                      </select>
+                    </div>
                     <br>
                     </p>
 
                     <p>
-                    {{form.Year_RemodAdd.label}}
-                    {{form.Year_RemodAdd}}   
+                    <div>
+                                        
+                      <label for="trestbps">Enter resting blood preassure (mm Hg)(trestbps)</label>  
+                      <input type="number" name="trestbps" class="input1" required="required" placeholder="Range : 60-200" align="center">
+                    </div>
+                    <br>   
+                    </p>
+
+
+                    <p>
+                    <div>                  
+                      <label for="chol">Enter Serum Cholestoral (mg/ dl)(chol)</label>  
+                      <input type="number" name="chol" class="input1" required="required" placeholder="Range : 120-600" align="center">
+                    </div>
                     <br>   
                     </p>
 
                     <p>
-                    {{form.Mas_Vnr_Area.label}}
-                    {{form.Mas_Vnr_Area}} 
-                    <br>     
-                    </p>
-
-                    <p>
-                    {{ form.BsmtFin_SF_1.label }}
-                    {{form.BsmtFin_SF_1}} 
+                    <div>
+                       <label for id="fbs">Is your fasting blood sugar level more than 120 (mg/dl)</label>
+                      <select class="input1" name="fbs" required="required">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
+                    </div>
                     <br>
                     </p>
 
                     <p>
-                    {{ form.Total_Bsmt_SF.label}}
-                    {{form.Total_Bsmt_SF}}
+                    <div>
+                      <label for id="restecg">Resting Electrocardiographic Results (restecg)</label>
+                      <select class="input1" name="restecg" required="required">
+                        <option value="0">Normal</option>
+                        <option value="1">Abnormal</option>
+                        <option value="2">probable</option>
+                      </select>
+                    </div>
                     <br>
                     </p>
 
-                    <p>
-                    {{form.Second_flr_SF.label}}
-                    {{form.Second_flr_SF}}
-                    <br>      
-                    </p>
-
-                    <p>
-                    {{form.Gr_Liv_Area.label}}
-                    {{form.Gr_Liv_Area}}
-                    <br>                         
-                    </p>
-
-
-                    <p>
-                    {{ form.garage_yr_blt.label }}
-                    {{form.garage_yr_blt}} 
-                    <br>     
-                    </p>
-
-
-                    <p>
-                    {{ form.Garage_Area.label }}
-                    {{form.Garage_Area}} 
-                    <br>     
-                    </p>
-
-                    <p>
-                    {{ form.Wood_Deck_SF.label}}
-                    {{form.Wood_Deck_SF}}
+                    <p> 
+                    <div>                
+                      <label for="thalach">Enter Maximum heart rate achieved (thalach)</label>
+                      <input type="number" name="thalach" class="input1" required="required" placeholder="Range : 60-200" align="center">
+                    </div>
                     <br>   
                     </p>
-            
+
                     <p>
-                    {{form.Open_Porch_SF.label}}
-                    {{form.Open_Porch_SF}}
-                    <br>     
+                    <div>
+                      <label for id="exang">Select Exercise Induced Angina(exang)</label>
+                      <select class="input1" name="exang" required="required">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
+                    </div>
+                    <br>
                     </p>
 
                     <p>
-                    {{form.screen_porch.label}}
-                    {{form.screen_porch}}
-                    <br>    
+                    <div>                    
+                      <label for="oldpeak">Enter old peak value (oldpeak)</label>
+                      <input type="number" name="oldpeak" class="input1" required="required" placeholder="Range : 0-6" align="center">
+                    </div>
+                    <br>   
                     </p>
-                
+
+                    <p>
+                    <div>
+                      <label for id="slope">Select Peak exercise ST segment slope</label>
+                      <select class="input1" name="slope" required="required">
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option> 
+                        <option value="2">Downsloping</option>
+                      </select>
+                    </div>
+                    <br>
+                    </p>
+
+                    <p>
+                    <div>
+                      <label for id="ca">Number of major vessels (ca)</label>
+                      <select class="input1" name="ca" required="required">
+                        <option value="0">zero</option>
+                        <option value="1">One</option> 
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                      </select>
+                    </div>
+                    <br>
+                    </p>
+
+                    <p>
+                    <div>
+                      <label for id="thal">Select Thal type (thal)</label>
+                      <select class="input1" name="thal" required="required">
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed</option> 
+                        <option value="2">Defect</option>
+                        <option value="3">Reversable</option>
+                      </select>
+                    </div>
+                    <br>
+                    </p>
                 
             {{ form.submit() }}
 

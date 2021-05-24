@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<html>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,13 +13,13 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  
+  <style type="text/css">
+  body {
+  background-image: linear-gradient(#FFFFFF, rgb(153, 102, 255));
+  }
 
-<style type="text/css">
-body {
-background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
-}
-</style>
-
+  </style>
 
   <!-- Favicons -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
@@ -39,9 +42,12 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
   <!-- Template Main CSS File -->
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}"/>
 
+
+
 </head>
 
 <body>
+
 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
@@ -76,117 +82,92 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
       </nav><!-- .navbar -->
 
     </div>
-  </header><!-- End Header -->
 
+  </header><!-- End Header -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
-          <h2>AMES HOUSE PRICE PREDICTION</h2>
-          <p>Please enter your house specification/measurements below : </p>
+          <H2 style="font-size:40px">HEART DISEASE PREDICTION </H2> 
+          <p style="font-size:30px">Thank You. Here is the Information You Gave: </p>
         </div>
 
 
+<ul align="center" style="border:lightblue; border-width:5px; border-style:solid;" >
+  <div>
+    <div >
 
- <div class="form-wrapper">
-        <form  method="POST", align="center">
-          <div style="border:lightred; border-width:5px; border-style:solid;">
-                {# This hidden_tag is a CSRF security feature. #}
-                {{ form.hidden_tag() }}
-                
+      <p style="font-size:17px">Age: {{session['age']}}</p>
 
-                    <p>
-                    {{form.Lot_Area.label }} 
-                    {{form.Lot_Area}}
-                    <br>
-                    </p>
-                    
+    </div>
+    <div>
+    
+    <p style="font-size:17px">sex: {{gen}}</p>
 
-                    <p>
-                    {{ form.Year_Built.label}}
-                    {{form.Year_Built}}  
-                    <br>
-                    </p>
+    </div>
+    <div>
 
-                    <p>
-                    {{form.Year_RemodAdd.label}}
-                    {{form.Year_RemodAdd}}   
-                    <br>   
-                    </p>
+    <p style="font-size:17px">cp:  {{cp1}} </p>  
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{form.Mas_Vnr_Area.label}}
-                    {{form.Mas_Vnr_Area}} 
-                    <br>     
-                    </p>
+    <p style="font-size:17px">trestbps: {{session['trestbps']}} </p>    
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{ form.BsmtFin_SF_1.label }}
-                    {{form.BsmtFin_SF_1}} 
-                    <br>
-                    </p>
+    <p style="font-size:17px">chol:  {{session['chol']}}  </p>      
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{ form.Total_Bsmt_SF.label}}
-                    {{form.Total_Bsmt_SF}}
-                    <br>
-                    </p>
+    <p style="font-size:17px">fbs: {{fbs1}}  </p>     
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{form.Second_flr_SF.label}}
-                    {{form.Second_flr_SF}}
-                    <br>      
-                    </p>
+    <p style="font-size:17px">restecg:  {{restecg1}}   </p>  
+    
+    </div>
+    <div> 
 
-                    <p>
-                    {{form.Gr_Liv_Area.label}}
-                    {{form.Gr_Liv_Area}}
-                    <br>                         
-                    </p>
+    <p style="font-size:17px">thalach: {{session['thalach']}}</p>   
+    
+    </div>
+    <div>
 
+    <p style="font-size:17px">exang:  {{exang1}}</p>
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{ form.garage_yr_blt.label }}
-                    {{form.garage_yr_blt}} 
-                    <br>     
-                    </p>
+    <p style="font-size:17px">oldpeak:  {{session['oldpeak']}}</p>
+    
+    </div>
+    <div>
 
+    <p style="font-size:17px">slope: {{slope1}} </p>
+    
+    </div>
+    <div>
 
-                    <p>
-                    {{ form.Garage_Area.label }}
-                    {{form.Garage_Area}} 
-                    <br>     
-                    </p>
+    <p style="font-size:17px">ca: {{session['ca']}} </p>
+  
+    </div>
+    <div> 
 
-                    <p>
-                    {{ form.Wood_Deck_SF.label}}
-                    {{form.Wood_Deck_SF}}
-                    <br>   
-                    </p>
-            
-                    <p>
-                    {{form.Open_Porch_SF.label}}
-                    {{form.Open_Porch_SF}}
-                    <br>     
-                    </p>
+    <p style="font-size:17px">thal:  {{session['thal']}}</p>
 
-                    <p>
-                    {{form.screen_porch.label}}
-                    {{form.screen_porch}}
-                    <br>    
-                    </p>
-                
-                
-            {{ form.submit() }}
+    </div>
+  </div>
 
-        </div>
+</ul>
+<h2 align="center">Do you have heart disease: {{results}}</h2>
+<p align="center">The accuracy of the model is :<b> 90% </b></p>
 
-      </form> 
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+   </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
@@ -228,5 +209,7 @@ background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
   <script src="assets/js/main.js"></script>
 
 </body>
+
+</html>
 
 </html>
