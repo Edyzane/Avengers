@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <title>Flask web app - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+  <style type="text/css">
+  body {
+  background-image: linear-gradient(#FFFFFF, rgb(153, 102, 255));
+  }
+
+  </style>
+
+  <!-- Favicons -->
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
+
+
+  <!-- Google Fonts -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+
+  <!-- Vendor CSS Files -->
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/animate.css/animate.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/glightbox/css/glightbox.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/swiper/swiper-bundle.min.css') }}"/>
+
+  <!-- Template Main CSS File -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}"/>
+
+
+
+</head>
+
+<body>
+
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">yeahhhh@rocketmail.com</a>
+        <i class="bi bi-phone-fill phone-icon"></i> +06 1300 88 2525
+      </div>
+      <div class="social-links d-none d-md-block">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{{ url_for('index') }}">Avengers</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('prediction') }}">Result</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+
+  </header><!-- End Header -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <H2 style="font-size:40px">HEART DISEASE PREDICTION </H2> 
+          <p style="font-size:30px">Thank You. Here is the Information You Gave: </p>
+        </div>
+
+
+<ul align="center" style="border:lightblue; border-width:5px; border-style:solid;" >
+  <div>
+    <div >
+
+      <p style="font-size:17px">Age: {{session['age']}}</p>
+
+    </div>
+    <div>
+    
+    <p style="font-size:17px">sex: {{gen}}</p>
+
+    </div>
+    <div>
+
+    <p style="font-size:17px">cp:  {{cp1}} </p>  
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">trestbps: {{session['trestbps']}} </p>    
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">chol:  {{session['chol']}}  </p>      
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">fbs: {{fbs1}}  </p>     
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">restecg:  {{restecg1}}   </p>  
+    
+    </div>
+    <div> 
+
+    <p style="font-size:17px">thalach: {{session['thalach']}}</p>   
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">exang:  {{exang1}}</p>
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">oldpeak:  {{session['oldpeak']}}</p>
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">slope: {{slope1}} </p>
+    
+    </div>
+    <div>
+
+    <p style="font-size:17px">ca: {{session['ca']}} </p>
+  
+    </div>
+    <div> 
+
+    <p style="font-size:17px">thal:  {{session['thal']}}</p>
+
+    </div>
+  </div>
+
+</ul>
+<h2 align="center">Heart Disease: {{results}}</h2>
+<p align="center">The accuracy of the model is :<b> 90% </b></p>
+
+   </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Avengers</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+
+  <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+</html>

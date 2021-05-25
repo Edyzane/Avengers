@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <title>Flask web app - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+<style type="text/css">
+body {
+background-image: linear-gradient(#FFFFFF, rgb(255, 122, 89));
+}
+</style>
+
+
+  <!-- Favicons -->
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}"/>
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"/>
+
+
+  <!-- Google Fonts -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+
+  <!-- Vendor CSS Files -->
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/animate.css/animate.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/glightbox/css/glightbox.min.css') }}"/>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='vendor/swiper/swiper-bundle.min.css') }}"/>
+
+  <!-- Template Main CSS File -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}"/>
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">yeahhhh@rocketmail.com</a>
+        <i class="bi bi-phone-fill phone-icon"></i> +06 1300 88 2525
+      </div>
+      <div class="social-links d-none d-md-block">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="https://www.google.com.my/">Avengers</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#Home">Home</a></li>
+          <li><a class="nav-link scrollto" href="#Result">Result</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>AMES HOUSE PRICE PREDICTION</h2>
+          <p>Please enter your house specification/measurements below : </p>
+        </div>
+
+
+
+ <div class="form-wrapper">
+        <form  method="POST", align="center">
+          <div >
+                {# This hidden_tag is a CSRF security feature. #}
+                {{ form.hidden_tag() }}
+                
+
+                    <p>
+                    {{form.Lot_Area.label }} 
+                    {{form.Lot_Area}}
+                    <br>
+                    </p>
+                    
+
+                    <p>
+                    {{ form.Year_Built.label}}
+                    {{form.Year_Built}}  
+                    <br>
+                    </p>
+
+                    <p>
+                    {{form.Year_RemodAdd.label}}
+                    {{form.Year_RemodAdd}}   
+                    <br>   
+                    </p>
+
+                    <p>
+                    {{form.Mas_Vnr_Area.label}}
+                    {{form.Mas_Vnr_Area}} 
+                    <br>     
+                    </p>
+
+                    <p>
+                    {{ form.BsmtFin_SF_1.label }}
+                    {{form.BsmtFin_SF_1}} 
+                    <br>
+                    </p>
+
+                    <p>
+                    {{ form.Total_Bsmt_SF.label}}
+                    {{form.Total_Bsmt_SF}}
+                    <br>
+                    </p>
+
+                    <p>
+                    {{form.Second_flr_SF.label}}
+                    {{form.Second_flr_SF}}
+                    <br>      
+                    </p>
+
+                    <p>
+                    {{form.Gr_Liv_Area.label}}
+                    {{form.Gr_Liv_Area}}
+                    <br>                         
+                    </p>
+
+
+                    <p>
+                    {{ form.garage_yr_blt.label }}
+                    {{form.garage_yr_blt}} 
+                    <br>     
+                    </p>
+
+
+                    <p>
+                    {{ form.Garage_Area.label }}
+                    {{form.Garage_Area}} 
+                    <br>     
+                    </p>
+
+                    <p>
+                    {{ form.Wood_Deck_SF.label}}
+                    {{form.Wood_Deck_SF}}
+                    <br>   
+                    </p>
+            
+                    <p>
+                    {{form.Open_Porch_SF.label}}
+                    {{form.Open_Porch_SF}}
+                    <br>     
+                    </p>
+
+                    <p>
+                    {{form.screen_porch.label}}
+                    {{form.screen_porch}}
+                    <br>    
+                    </p>
+                
+                
+            {{ form.submit() }}
+
+        </div>
+
+      </form> 
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Avengers</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+
+  <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
