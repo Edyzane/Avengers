@@ -39,9 +39,9 @@ def return_prediction(model,scaler,sample_json):
     prediction = model.predict(heart)
 
     if prediction == 1:
-            res = 'Affected'
+            res = 'Presence'
     else:
-        res = 'Not affected'
+        res ='Absence'
 
     #return prediction[0]
     return res
@@ -55,8 +55,8 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 
 # REMEMBER TO LOAD THE MODEL AND THE SCALER!
-heart_model = load("heart_model.h5")
-heart_scaler = load("heart_scaler.pkl")
+house_model = load("heart_model.h5")
+house_scaler = load("heart_scaler.pkl")
 
 
 
@@ -116,68 +116,67 @@ def index():
 
 @app.route('/prediction')
 def prediction():
-	content = {}
+    content = {}
 
-	content['age'] = float(session['age'])
-	content['sex'] = float(session['sex'])
-	content['cp'] = float(session['cp'])
-	content['trestbps'] = float(session['trestbps'])
-	content['chol'] = float(session['chol'])
-	content['fbs'] = float(session['fbs'])
-	content['restecg'] = float(session['restecg'])
-	content['thalach'] = float(session['thalach'])
-	content['exang'] = float(session['exang'])
-	content['oldpeak'] = float(session['oldpeak'])
-	content['slope'] = float(session['slope'])
-	content['ca'] = float(session['ca'])
-	content['thal'] = float(session['thal'])
+    content['age'] = float(session['age'])
+    content['sex'] = float(session['sex'])
+    content['cp'] = float(session['cp'])
+    content['trestbps'] = float(session['trestbps'])
+    content['chol'] = float(session['chol'])
+    content['fbs'] = float(session['fbs'])
+    content['restecg'] = float(session['restecg'])
+    content['thalach'] = float(session['thalach'])
+    content['exang'] = float(session['exang'])
+    content['oldpeak'] = float(session['oldpeak'])
+    content['slope'] = float(session['slope'])
+    content['ca'] = float(session['ca'])
+    content['thal'] = float(session['thal'])
 
-	results = return_prediction(model=heart_model,scaler=heart_scaler,sample_json=content)
+    results =   return_prediction(model=house_model,scaler=house_scaler,sample_json=content)
 
     #results = np.expm1(results)
     #results = "{:.2f}".format(results)
 
-	if content['sex']==0:
-		gen = 'female'
-	else:
-		gen = 'male'
+    if content['sex']==0:
+        gen =   'female'
+    else:
+        gen = 'male'
 
-	if content['cp']==0:	
-		cp1 = 'Typical Angina'
-	elif content['cp']==1:
-		cp1 = 'Atyopical Angina'
-	elif content['cp']==2:
-		cp1 = 'Non Anginal Pain'
-	else:
-		cp1 = 'Asymptomatic'
-
-
-	if content['fbs']==0:
-		fbs1 = 'No'
-	else:
-		fbs1 = 'Yes'
+    if content['cp']==0:
+        cp1 = 'Typical Angina'
+    elif content['cp']==1:
+        cp1 = 'Atyopical Angina'
+    elif content['cp']==2:
+        cp1 = 'Non Anginal Pain'
+    else:
+        cp1 = 'Asymptomatic'
 
 
-	if content['restecg']==0:
-		restecg1 = 'Normal'
-	elif content['restecg']==1:
-		restecg1 = 'Abnormal'
-	else:
-		restecg1 = 'Probably'	
+    if content['fbs']==0:
+        fbs1 = 'No'
+    else:
+        fbs1 = 'Yes'
 
-	if content['exang']==0:
-		exang1 = 'No'
-	else:
-		exang1 = 'Yes'
 
-	if content['slope']==0:
-		slope1 = 'Upsloping'
-	elif content['slope']==1:
-		slope1 = 'Flat'
-	else:
-		slope1 = 'Downsloping'
+    if content['restecg']==0:
+        restecg1 = 'Normal'
+    elif content['restecg']==1:
+        restecg1 = 'Abnormal'
+    else:
+        restecg1 = 'Probably'	
+    if content['exang']==0:
+        exang1 = 'No'
+    else:
+        exang1 = 'Yes'
+
+    if content['slope']==0:
+        slope1 = 'Upsloping'
+    elif content['slope']==1:
+        slope1 = 'Flat'
+    else:
+        slope1 = 'Downsloping'
 	
-	return render_template('prediction.html',results=results,gen=gen,cp1=cp1,fbs1=fbs1,restecg1=restecg1,exang1=exang1,slope1=slope1)
+    return render_template('prediction.html',results=results,gen=gen,cp1=cp1,fbs1=fbs1,restecg1=restecg1,exang1=exang1,slope1=slope1)
 
 
 if __name__ == '__main__':
